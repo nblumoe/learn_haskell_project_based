@@ -17,7 +17,8 @@ cabal-version:       >=1.10
 
 library
   -- exposed-modules:
-  -- other-modules:
+  other-modules: Chapter2.Section2.Example,
+                 Chapter2.SimpleFunctions
   -- other-extensions:
   build-depends:       base >=4.8 && <4.9
   hs-source-dirs:      src
