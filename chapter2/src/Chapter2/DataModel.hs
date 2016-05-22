@@ -112,3 +112,19 @@ nameInCapitals p@PersonR{firstName = initial:rest} =
        { firstName = newName
        }
 nameInCapitals p@PersonR{firstName = ""} = p
+
+data TimeMachineR = TimeMachineR
+    { name :: String
+    , model :: Int
+    , direction :: Direction
+    , price :: Float
+    } deriving (Show)
+
+machinesOnSaleR :: Float -> [TimeMachineR] -> [TimeMachineR]
+machinesOnSaleR _ [] = []
+machinesOnSaleR discount (tm@TimeMachineR{price = p}:tms) =
+    let newPrice = (1 - discount) * p
+    in tm
+       { price = newPrice
+       } :
+       machinesOnSaleR discount tms
