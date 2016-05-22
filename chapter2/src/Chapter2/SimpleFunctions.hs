@@ -46,3 +46,14 @@ maxmin' list =
     t     = maxmin' (tail list)
     t_max = fst t
     t_min = snd t
+maxmin'' :: Ord a => [a] -> (a, a)
+maxmin'' [x] = (x,x)
+maxmin'' (x:xs) =
+    ( if x > xs_max
+          then x
+          else xs_max
+    , if x < xs_min
+          then x
+          else xs_min)
+  where
+    (xs_max,xs_min) = maxmin'' xs
