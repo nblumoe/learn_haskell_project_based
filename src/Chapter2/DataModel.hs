@@ -66,3 +66,8 @@ genderFrequencies clients =
         ( genderCount Female clients
         , genderCount Male clients
         , genderCount Unknown clients)
+
+machinesOnSale :: Float -> [TimeMachine] -> [TimeMachine]
+machinesOnSale _ [] = []
+machinesOnSale discount (TimeMachine a b c price:tms) =
+  ((TimeMachine a b c ((1-discount) * price)):(machinesOnSale discount tms))
