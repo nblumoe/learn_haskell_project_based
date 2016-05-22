@@ -1,3 +1,5 @@
+{-# LANGUAGE ViewPatterns #-}
+
 module DataModel where
 
 data Client
@@ -39,6 +41,14 @@ clientName :: Client -> String
 clientName (GovOrg name) = name
 clientName (Company name _ _ _) = name
 clientName (Individual (Person fName lName _) _) = fName ++ " " ++ lName
+
+responsibility :: Client -> String
+responsibility (Company _ _ _ r) = r
+responsibility _ = "Unknown"
+
+specialClient (clientName -> "Mr. Alejandro") = True
+specialClient (responsibility -> "CEO") = True
+specialClient _ = False
 
 companyName :: Client -> Maybe String
 companyName (Company name _ _ _) = Just name
