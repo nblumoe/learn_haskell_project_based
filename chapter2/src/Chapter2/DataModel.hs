@@ -128,3 +128,21 @@ machinesOnSaleR discount (tm@TimeMachineR{price = p}:tms) =
        { price = newPrice
        } :
        machinesOnSaleR discount tms
+
+-- The chapter closes with showing how to use records as a best
+-- practice for functions with default parameters. However, it
+-- is using code that does not compile and thus the following
+-- is commented out (and incomplete).
+
+-- data ConnType = TCP | UDP
+-- data UseProxy = NoProxy | Proxy String
+-- data TimeOut
+--     = NoTimeOut
+--     | TimeOut Integer
+
+-- data Connection = ... -- Definition omitted
+
+-- connect' :: String -> ConnType -> Integer -> UseProxy -> Bool -> Bool -> TimeOut -> Connection
+
+-- connectUrl :: String -> Connection
+-- connectUrl u = connect' u TCP 0 NoProxy
