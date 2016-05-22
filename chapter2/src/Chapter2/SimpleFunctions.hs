@@ -81,3 +81,7 @@ ackermann m n
   | m > 0
   , n > 0 =
       ackermann (m - 1) (ackermann m (n - 1))
+
+unzip' :: [(a, a)] -> ([a], [a])
+unzip' [] = ([], [])
+unzip' ((t1,t2):ts) = (t1 : fst (unzip' ts), t2 : snd (unzip' ts))
