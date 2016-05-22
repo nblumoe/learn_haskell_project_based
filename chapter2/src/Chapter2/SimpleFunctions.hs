@@ -71,3 +71,13 @@ ifibonacci n
       let (Just f1,Just f2) = (ifibonacci (n - 1), ifibonacci (n - 2))
       in Just (f1 + f2)
 
+
+ackermann :: Int -> Int -> Int
+ackermann m n
+  | m == 0 = n + 1
+  | m > 0
+  , n == 0 =
+      ackermann (m - 1) 1
+  | m > 0
+  , n > 0 =
+      ackermann (m - 1) (ackermann m (n - 1))
